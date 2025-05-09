@@ -54,7 +54,7 @@ const LoginPage = () => {
       });
       setLocation('/');
     },
-    onError: (error) => {
+    onError: (_error) => { // Prefixed with _ to indicate it's intentionally unused
       toast({
         title: 'Login failed',
         description: 'Please check your credentials and try again.',

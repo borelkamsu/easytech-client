@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'wouter';
-import { Calendar, Clock, ChevronRight, Search } from 'lucide-react';
+import { Calendar, ChevronRight, Search } from 'lucide-react'; // Removed unused Clock import
 import { BlogPost } from '@/types';
 import { Input } from '@/components/ui/input';
 import Newsletter from '@/components/Newsletter';
@@ -81,7 +81,8 @@ const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   // Fetch blog posts from API
-  const { data: posts, isLoading, error } = useQuery<BlogPost[]>({
+  // Suppression des variables inutilisées (isLoading et error)
+const { data: posts } = useQuery<BlogPost[]>({
     queryKey: ['/api/blog-posts'],
   });
 

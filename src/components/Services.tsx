@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
-import { Home, Building, ShoppingBag, Globe, BookOpen, Shield } from 'lucide-react';
+// Ces icônes sont importées mais pas utilisées dans ce composant
+// import { Home, Building, ShoppingBag, Globe, BookOpen, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useQuery } from '@tanstack/react-query';
 import { Service } from '@/types';
@@ -32,7 +33,8 @@ const ServiceCard = ({ service }: { service: Service }) => {
 
 const Services = () => {
   // Fetch services from API
-  const { data: services, isLoading, error } = useQuery<Service[]>({
+  // Suppression des variables inutilisées (isLoading et error)
+const { data: services } = useQuery<Service[]>({
     queryKey: ['/api/services'],
   });
 

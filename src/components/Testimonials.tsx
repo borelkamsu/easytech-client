@@ -30,7 +30,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
 const Testimonials = () => {
   // Fetch testimonials from API
-  const { data: testimonials, isLoading, error } = useQuery<Testimonial[]>({
+  // Suppression des variables inutilisées (isLoading et error)
+const { data: testimonials } = useQuery<Testimonial[]>({
     queryKey: ['/api/testimonials'],
   });
 

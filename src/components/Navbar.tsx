@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
-import logoSvg from '@/assets/logo.svg';
+// Import logo with relative path as a workaround for Vercel build
+import logoSvg from '../assets/logo.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

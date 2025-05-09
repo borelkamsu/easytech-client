@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
-import logoSvg from '@/assets/logo.svg';
+// Import logo with relative path as a workaround for Vercel build
+import logoSvg from '../assets/logo.svg';
 import { 
   Facebook, 
   Twitter, 

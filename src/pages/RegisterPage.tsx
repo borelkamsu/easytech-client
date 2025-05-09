@@ -34,8 +34,8 @@ const registerSchema = z.object({
     .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
     .regex(/[0-9]/, 'Password must contain at least one number'),
   confirmPassword: z.string(),
-  agreeTerms: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the terms and conditions' }),
+  agreeTerms: z.boolean().refine(val => val === true, {
+    message: 'You must agree to the terms and conditions',
   }),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
@@ -74,7 +74,7 @@ const RegisterPage = () => {
       });
       setLocation('/login');
     },
-    onError: (error) => {
+    onError: (_error) => { // Prefixed with _ to indicate it's intentionally unused
       toast({
         title: 'Registration failed',
         description: 'There was a problem creating your account. Please try again.',
@@ -102,7 +102,7 @@ const RegisterPage = () => {
             </div>
             
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="username"
